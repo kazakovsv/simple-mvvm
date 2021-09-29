@@ -13,8 +13,10 @@ namespace SimpleMVVM.ViewModels
 
         public BookViewModel(Book book, BookRepository bookRepository)
         {
-            m_book = book ?? throw new ArgumentNullException(nameof(book));
-            m_bookRepository = bookRepository ?? throw new ArgumentNullException(nameof(bookRepository));
+            m_book = book
+                ?? throw new ArgumentNullException(nameof(book));
+            m_bookRepository = bookRepository
+                ?? throw new ArgumentNullException(nameof(bookRepository));
         }
 
         public string Title
