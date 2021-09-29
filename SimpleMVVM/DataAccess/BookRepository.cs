@@ -88,12 +88,9 @@ namespace SimpleMVVM.DataAccess
             Uri uri = new Uri(resourceFile, UriKind.RelativeOrAbsolute);
             StreamResourceInfo info = Application.GetResourceStream(uri);
 
-            if (info == null || info.Stream == null)
-            {
-                throw new ApplicationException("Отсутствует файл ресурсов: " + resourceFile);
-            }
-
-            return info.Stream;
+            return info == null || info.Stream == null
+                ? throw new ApplicationException("Отсутствует файл ресурсов: " + resourceFile)
+                : info.Stream;
         }
 
         #endregion // Private Helpers
