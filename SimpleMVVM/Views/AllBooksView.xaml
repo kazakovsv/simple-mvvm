@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="SimpleMVVM.Views.AllBooksView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <UserControl.Resources>
+        <Style x:Key="BookItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}"/>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="ItemsControl.AlternationIndex" Value="1"/>
+                        <Condition Property="IsSelected" Value="False"/>
+                        <Condition Property="IsMouseOver" Value="False"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="#EEEEEEEE"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="3">
+        <ListView
+            ItemsSource="{Binding AllBooks}"
+            ItemContainerStyle="{StaticResource BookItemStyle}"
+            AlternationCount="2"
+            />
+    </Grid>
+</UserControl>
