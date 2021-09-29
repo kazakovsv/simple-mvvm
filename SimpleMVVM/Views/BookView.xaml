@@ -1,0 +1,134 @@
+﻿<UserControl
+    x:Class="SimpleMVVM.Views.BookView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <Grid Margin="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type ValidationError}">
+                <TextBlock
+                    FontStyle="Italic"
+                    Foreground="Red"
+                    HorizontalAlignment="Right"
+                    Text="{Binding Path=ErrorContent}"
+                    />
+            </DataTemplate>
+        </Grid.Resources>
+        
+        <!-- Book Title -->
+        <Label
+            Grid.Column="0"
+            Grid.Row="0"
+            Content="_Заголовок книги:"
+            HorizontalAlignment="Right"
+            Target="{Binding ElementName=TextBoxTitle}"
+            />
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="0"
+            x:Name="TextBoxTitle"
+            Text="{Binding Path=Title,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}"
+            Validation.ErrorTemplate="{x:Null}"
+            />
+        <ContentPresenter
+            Grid.Column="1"
+            Grid.Row="1"
+            Content="{Binding ElementName=TextBoxTitle, Path=(Validation.Errors)[0]}"
+            />
+
+        <!-- Book ISBN -->
+        <Label
+            Grid.Column="0"
+            Grid.Row="2"
+            Content="Стандартный _номер книги (ISBN):"
+            HorizontalAlignment="Right"
+            Target="{Binding ElementName=TextBoxIsbn}"
+            />
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="2"
+            x:Name="TextBoxIsbn"
+            Text="{Binding Path=Isbn,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}"
+            Validation.ErrorTemplate="{x:Null}"
+            />
+        <ContentPresenter
+            Grid.Column="1"
+            Grid.Row="3"
+            Content="{Binding ElementName=TextBoxIsbn, Path=(Validation.Errors)[0]}"
+            />
+
+        <!-- Book Author -->
+        <Label
+            Grid.Column="0"
+            Grid.Row="4"
+            Content="_Автор книги:"
+            HorizontalAlignment="Right"
+            Target="{Binding ElementName=TextBoxAuthor}"
+            />
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="4"
+            x:Name="TextBoxAuthor"
+            Text="{Binding Path=Author,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}"
+            Validation.ErrorTemplate="{x:Null}"
+            />
+        <ContentPresenter
+            Grid.Column="1"
+            Grid.Row="5"
+            Content="{Binding ElementName=TextBoxAuthor, Path=(Validation.Errors)[0]}"
+            />
+
+        <!-- Book Publisher -->
+        <Label
+            Grid.Column="0"
+            Grid.Row="6"
+            Content="_Издательство:"
+            HorizontalAlignment="Right"
+            Target="{Binding ElementName=TextBoxPublisher}"
+            />
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="6"
+            x:Name="TextBoxPublisher"
+            Text="{Binding Path=Publisher,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}"
+            Validation.ErrorTemplate="{x:Null}"
+            />
+        <ContentPresenter
+            Grid.Column="1"
+            Grid.Row="7"
+            Content="{Binding ElementName=TextBoxPublisher, Path=(Validation.Errors)[0]}"
+            />
+        
+        <!-- Save Button -->
+        <Button
+            Grid.Column="1"
+            Grid.Row="8"
+            Content="_Сохранить"
+            Command="{Binding Path=SaveCommand}"/>
+    </Grid>
+</UserControl>
