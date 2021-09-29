@@ -15,7 +15,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <Border 
-                        Background="{StaticResource Brush_HeaderBackground}" 
+                        Background="{StaticResource HeaderBackgroundBrush}" 
                         BorderBrush="LightGray" 
                         BorderThickness="1" 
                         CornerRadius="5" 

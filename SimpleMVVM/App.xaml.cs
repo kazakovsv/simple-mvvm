@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using SimpleMVVM.ViewModels;
+using SimpleMVVM.Views;
 
 namespace SimpleMVVM
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        private readonly string m_path = "Data/books.xml";
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            MainView mainView = new MainView();
+            MainViewModel mainViewModel = new MainViewModel(m_path);
+            mainView.DataContext = mainViewModel;
+            mainViewModel.RequestClose += (sender, e) => mainView.Close();
+            mainView.Show();
+        }
     }
 }

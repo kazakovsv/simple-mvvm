@@ -7,4 +7,12 @@
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Data\Books.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data\Books.xml" />
+  </ItemGroup>
+
 </Project>
