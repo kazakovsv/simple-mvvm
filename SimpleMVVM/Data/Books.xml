@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <books>
-	<book title="Чистый код" isbn="978-5-4461-0960-9" author="Роберт Мартин" publisher="Питер" published_year="2021"/>
-	<book title="Алгоритмы и структуры данных" isbn="978-5-97060-230-0" author="Никлаус Вирт" publisher="ДМК" published_year="2016"/>
-	<book title="Язык программирования C" isbn="978-5-907144-14-9" author="Деннис Ритчи" publisher="Вильямс" published_year="2019"/>
-	<book title="Принципы юнит-тестирования" isbn="978-5-4461-1683-6" author="Владимир Хориков" publisher="Питер" published_year="2021"/>
-	<book title="Построение компиляторов" isbn="978-5-97060-219-5" author="Никлаус Вирт" publisher="Питер" published_year="2016"/>
-	<book title="Объектно-ориентированное программирование в С++" isbn="978-5-4461-0927-2" author="Роберт Лафоре" publisher="Питер" published_year="2019"/>
-	<book title="Язык программирования C++. Лекции и упражнения" isbn="978-5-907114-00-5" author="Стивен Прата" publisher="Вильямс" published_year="2018"/>
+	<book title="Чистый код" isbn="978-5-4461-0960-9" author="Роберт Мартин" publisher="Питер"/>
+	<book title="Алгоритмы и структуры данных" isbn="978-5-97060-230-0" author="Никлаус Вирт" publisher="ДМК"/>
+	<book title="Язык программирования C" isbn="978-5-907144-14-9" author="Деннис Ритчи" publisher="Вильямс"/>
+	<book title="Принципы юнит-тестирования" isbn="978-5-4461-1683-6" author="Владимир Хориков" publisher="Питер"/>
+	<book title="Построение компиляторов" isbn="978-5-97060-219-5" author="Никлаус Вирт" publisher="Питер"/>
+	<book title="Объектно-ориентированное программирование в С++" isbn="978-5-4461-0927-2" author="Роберт Лафоре" publisher="Питер"/>
+	<book title="Язык программирования C++. Лекции и упражнения" isbn="978-5-907114-00-5" author="Стивен Прата" publisher="Вильямс"/>
 </books>

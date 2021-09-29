@@ -21,24 +21,21 @@ namespace SimpleMVVM.Model
                 string.Empty,
                 string.Empty,
                 string.Empty,
-                string.Empty,
-                DateTime.Now);
+                string.Empty);
         }
 
         public static Book CreateBook(
             string title,
             string isbn,
             string author,
-            string publisher,
-            DateTime publishedYear)
+            string publisher)
         {
             return new Book
             {
                 Title = title,
                 Isbn = isbn,
                 Author = author,
-                Publisher = publisher,
-                PublishedYear = publishedYear
+                Publisher = publisher
             };
         }
 
@@ -53,8 +50,6 @@ namespace SimpleMVVM.Model
         public string Author { get; set; }
 
         public string Publisher { get; set; }
-
-        public DateTime PublishedYear { get; set; }
 
         #endregion // Properties
 

@@ -79,21 +79,6 @@ namespace SimpleMVVM.ViewModels
             }
         }
 
-        public DateTime PublishedYear
-        {
-            get => m_book.PublishedYear;
-            set
-            {
-                if (value == m_book.PublishedYear)
-                {
-                    return;
-                }
-
-                m_book.PublishedYear = value;
-                OnPropertyChanged();
-            }
-        }
-
         public override string DisplayName => Title;
 
         public bool IsSelected

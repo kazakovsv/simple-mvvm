@@ -78,8 +78,7 @@ namespace SimpleMVVM.DataAccess
                         (string)bookElement.Attribute("title"),
                         (string)bookElement.Attribute("isbn"),
                         (string)bookElement.Attribute("author"),
-                        (string)bookElement.Attribute("publisher"),
-                        (DateTime)bookElement.Attribute("published_year")
+                        (string)bookElement.Attribute("publisher")
                         )).ToList();
         }
 
