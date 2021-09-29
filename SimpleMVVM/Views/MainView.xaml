@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="SimpleMVVM.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    WindowStartupLocation="CenterScreen"
+    Title="{Binding Path=DisplayName}"
+    FontSize="13"
+    FontFamily="Verdana"
+    >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/MainViewResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel
+            DockPanel.Dock="Top"
+            KeyboardNavigation.TabNavigation="None"
+            >
+            <Menu KeyboardNavigation.TabNavigation="Cycle">
+                <MenuItem Header="Файл">
+                    <MenuItem Header="_Выход" Command="{Binding Path=CloseCommand}"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <Grid Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Border 
+            Grid.Column="0" 
+            Style="{StaticResource MainBorderStyle}"
+            >
+            <HeaderedContentControl
+                Content="{Binding Path=Commands}"
+                ContentTemplate="{StaticResource CommandsTemplate}"
+                Header="Панель управления"
+                Style="{StaticResource MainHCCStyle}"
+                />
+        </Border>
+
+        <Border
+            Grid.Column="1" 
+            Style="{StaticResource MainBorderStyle}"
+            >
+            <HeaderedContentControl 
+                Content="{Binding Path=Workspaces}"
+                ContentTemplate="{StaticResource WorkspacesTemplate}"
+                Header="Рабочая область"
+                Style="{StaticResource MainHCCStyle}"
+                />
+        </Border>
+    </DockPanel>
+</Window>
