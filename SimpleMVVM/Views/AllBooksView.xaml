@@ -14,7 +14,7 @@
                         <Condition Property="IsSelected" Value="False"/>
                         <Condition Property="IsMouseOver" Value="False"/>
                     </MultiTrigger.Conditions>
-                    <Setter Property="Background" Value="#EEEEEEEE"/>
+                    <Setter Property="Background" Value="#EEEEEEEE" />
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
@@ -24,6 +24,15 @@
             ItemsSource="{Binding AllBooks}"
             ItemContainerStyle="{StaticResource BookItemStyle}"
             AlternationCount="2"
-            />
+            >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Заголовок" DisplayMemberBinding="{Binding Path=Title}"/>
+                    <GridViewColumn Header="Номер" DisplayMemberBinding="{Binding Path=Isbn}"/>
+                    <GridViewColumn Header="Автор" DisplayMemberBinding="{Binding Path=Author}"/>
+                    <GridViewColumn Header="Издатель" DisplayMemberBinding="{Binding Path=Publisher}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

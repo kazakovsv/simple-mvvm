@@ -114,7 +114,7 @@ namespace SimpleMVVM.ViewModels
 
         private void SetActiveWorkspace(WorkspaceViewModel workspace)
         {
-            ICollectionView collectionView = CollectionViewSource.GetDefaultView(workspace);
+            ICollectionView collectionView = CollectionViewSource.GetDefaultView(Workspaces);
 
             if (collectionView != null)
             {

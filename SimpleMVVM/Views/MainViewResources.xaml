@@ -98,8 +98,8 @@
         </DockPanel>
     </DataTemplate>
     <DataTemplate x:Key="WorkspacesTemplate">
-        <TabControl 
-            IsSynchronizedWithCurrentItem="True" 
+        <TabControl
+            IsSynchronizedWithCurrentItem="True"
             ItemsSource="{Binding}" 
             ItemTemplate="{StaticResource ClosableTabItemTemplate}"
             Margin="3"

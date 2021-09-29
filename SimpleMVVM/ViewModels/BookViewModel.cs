@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Input;
 using SimpleMVVM.Commands;
 using SimpleMVVM.DataAccess;
@@ -6,10 +7,11 @@ using SimpleMVVM.Model;
 
 namespace SimpleMVVM.ViewModels
 {
-    public class BookViewModel : WorkspaceViewModel
+    public class BookViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         private readonly Book m_book;
         private readonly BookRepository m_bookRepository;
+        private const string mc_newBookTitle = "Новая книга";
 
         public BookViewModel(Book book, BookRepository bookRepository)
         {
@@ -79,7 +81,7 @@ namespace SimpleMVVM.ViewModels
             }
         }
 
-        public override string DisplayName => Title;
+        public override string DisplayName => IsNewBook ? mc_newBookTitle : Title;
 
         public bool IsSelected
         {
@@ -113,6 +115,7 @@ namespace SimpleMVVM.ViewModels
                 return m_saveCommand;
             }
         }
+
         private DelegateCommand m_saveCommand;
 
         private bool CanSaveCommandExecute()
@@ -138,6 +141,20 @@ namespace SimpleMVVM.ViewModels
             }
 
             OnPropertyChanged(nameof(DisplayName));
+        }
+
+        public string Error => (m_book as IDataErrorInfo).Error;
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                string error = (m_book as IDataErrorInfo)[propertyName];
+
+                CommandManager.InvalidateRequerySuggested();
+
+                return error;
+            }
         }
     }
 }
