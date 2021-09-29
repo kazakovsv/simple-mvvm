@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Data;
 using SimpleMVVM.Commands;
 using SimpleMVVM.DataAccess;
@@ -93,7 +94,14 @@ namespace SimpleMVVM.ViewModels
 
         private void ShowAllBooks()
         {
-            throw new NotImplementedException();
+            if (!(Workspaces.FirstOrDefault(vm => vm is AllBooksViewModel)
+                is AllBooksViewModel workspace))
+            {
+                workspace = new AllBooksViewModel(m_bookRepository);
+                Workspaces.Add(workspace);
+            }
+
+            SetActiveWorkspace(workspace);
         }
 
         private void CreateNewBook()
