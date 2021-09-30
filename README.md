@@ -1,2 +1,2 @@
 # simple-mvvm
-First MVVM Project
+A simple WPF project that demonstrates the implementation of the MVVM pattern.
